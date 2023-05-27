@@ -2,13 +2,7 @@ import os.path
 import shutil
 
 import PIL
-import tensorflow as tf
 import click
-
-
-# in_dir = 'data\\raw\\kaggle'
-# out_dir = 'data\\processed\\PetImages'
-# n_img = 20
 
 
 @click.command()
@@ -23,7 +17,7 @@ def process_data(in_dir, out_dir, n_img, img_size):
 
 def make_out_dir(out_dir):
     if os.path.exists(out_dir):
-        os.remove(out_dir)
+        shutil.rmtree(out_dir)
 
     os.mkdir(out_dir)
     os.mkdir(os.path.join(out_dir, 'Cat'))
