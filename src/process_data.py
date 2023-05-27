@@ -1,7 +1,7 @@
 import os.path
 import shutil
 
-import PIL
+from PIL import Image
 import click
 
 
@@ -12,7 +12,7 @@ import click
 @click.option('-s', '--img_size', default=180)
 def process_data(in_dir, out_dir, n_img, img_size):
     make_out_dir(out_dir)
-    copy_imgs(in_dir, out_dir, n_img, img_size)
+    process_imgs(in_dir, out_dir, n_img, img_size)
 
 
 def make_out_dir(out_dir):
@@ -24,24 +24,21 @@ def make_out_dir(out_dir):
     os.mkdir(os.path.join(out_dir, 'Dog'))
 
 
-def copy_imgs(in_dir, out_dir, n_img, img_size):
+def process_imgs(in_dir, out_dir, n_img, img_size):
     all_imgs = os.listdir(in_dir)
     cat_imgs = [img for img in all_imgs if img.startswith('cat')]
     dog_imgs = [img for img in all_imgs if img.startswith('dog')]
 
-    for cat_img in cat_imgs[:n_img]:
-        in_img_path = os.path.join(in_dir, cat_img)
-        img = PIL.Image.open(in_img_path)
-        img_r = img.resize((img_size, img_size))
-        out_img_path = os.path.join(out_dir, "Cat", cat_img)
-        img_r.save(out_img_path)
+    def resize_and_save(imgs_list, category_name):
+        for cat_img in imgs_list[:n_img]:
+            in_img_path = os.path.join(in_dir, cat_img)
+            img = Image.open(in_img_path)
+            img_r = img.resize((img_size, img_size))
+            out_img_path = os.path.join(out_dir, category_name, cat_img)
+            img_r.save(out_img_path)
 
-    for dog_img in dog_imgs[:n_img]:
-        in_img_path = os.path.join(in_dir, dog_img)
-        img = PIL.Image.open(in_img_path)
-        img_r = img.resize((img_size, img_size))
-        out_img_path = os.path.join(out_dir, "Dog", dog_img)
-        img_r.save(out_img_path)
+    resize_and_save(cat_imgs, "Cat")
+    resize_and_save(dog_imgs, "Dog")
 
 
 if __name__ == '__main__':
