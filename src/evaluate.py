@@ -25,4 +25,3 @@ if __name__ == '__main__':
     print(f'Accuracy: {accuracy}')
     print(f'Precision: {precision}')
     print(f'Recall: {recall}')
-
