@@ -2,7 +2,6 @@ from tensorflow import keras
 from keras import layers
 
 
-
 def make_model(input_shape, num_classes):
     inputs = keras.Input(shape=input_shape)
 
