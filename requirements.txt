@@ -8,3 +8,4 @@ pylint
 jupyter
 dvc
 boto3
+python-dotenv
