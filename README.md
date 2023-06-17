@@ -61,3 +61,4 @@ CLI python.
 
 ### 6. Контейнеризация с Docker
 
+Ссылка на ваши модели имеет вид: https://storage.yandexcloud.net/pabdcv/221675/model.zip
