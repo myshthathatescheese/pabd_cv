@@ -1,5 +1,7 @@
-# pabd_cv
-Predictive analytics practice repo for computer vision students
+# Предиктивная аналитика больших данных 
+
+Репозиторий для студентов Computer Vision  
+Результаты тестов и экзаменов доступны по [ссылке](Results_CV.csv)  
 
 ## План семинаров
 
@@ -60,5 +62,9 @@ CLI python.
 
 
 ### 6. Контейнеризация с Docker
+
+Основные возможности и команды docker (tutorial)  
+Упаковка приложения в контейнер  
+Публикация контейнера на dockerhub  
 
 Ссылка на ваши модели имеет вид: https://storage.yandexcloud.net/pabdcv/221675/model.zip
