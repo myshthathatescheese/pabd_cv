@@ -1,0 +1,4 @@
+[core]
+    remote = myremote
+['remote "myremote"']
+    url = C:/Users/V/Documents/edu/pa/remote-storage
